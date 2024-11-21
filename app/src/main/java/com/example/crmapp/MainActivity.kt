@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             ), drawerLayout
         )
 
+
         // Set up navigation for the action bar and the navigation view
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)

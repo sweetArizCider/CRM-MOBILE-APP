@@ -28,12 +28,6 @@ class MainActivity : AppCompatActivity() {
         // Set up the toolbar as the action bar
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        // Set up the floating action button
-        binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab).show()
-        }
 
         // Initialize the drawer and navigation view
         val drawerLayout: DrawerLayout = binding.drawerLayout
@@ -43,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of IDs because each should be considered a top-level destination
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_candidatos, R.id.nav_clientes, R.id.nav_oportunidades, R.id.nav_cuentas
             ), drawerLayout
         )
 
@@ -62,4 +56,5 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }

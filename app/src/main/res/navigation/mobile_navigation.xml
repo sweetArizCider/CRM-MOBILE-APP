@@ -2,24 +2,33 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/mobile_navigation"
-            app:startDestination="@+id/nav_home">
+            app:startDestination="@id/nav_candidatos">
 
+    <!-- Candidatos Fragment -->
     <fragment
-            android:id="@+id/nav_home"
-            android:name="com.example.crmapp.ui.home.HomeFragment"
-            android:label="@string/menu_home"
-            tools:layout="@layout/fragment_home"/>
+            android:id="@+id/nav_candidatos"
+            android:name="com.example.crmapp.classes.CandidatosFragment"
+            android:label="Candidatos"
+            tools:layout="@layout/fragment_candidatos" />
 
+    <!-- Cuentas Fragment -->
     <fragment
-            android:id="@+id/nav_gallery"
-            android:name="com.example.crmapp.ui.gallery.GalleryFragment"
-            android:label="@string/menu_gallery"
-            tools:layout="@layout/fragment_gallery"/>
+            android:id="@+id/nav_cuentas"
+            android:name="com.example.crmapp.classes.CuentasFragment"
+            android:label="Cuentas"
+            tools:layout="@layout/fragment_cuentas" />
 
+    <!-- Contactos Fragment -->
     <fragment
-            android:id="@+id/nav_slideshow"
-            android:name="com.example.crmapp.ui.slideshow.SlideshowFragment"
-            android:label="@string/menu_slideshow"
-            tools:layout="@layout/fragment_slideshow"/>
+            android:id="@+id/nav_clientes"
+            android:name="com.example.crmapp.classes.ClientesFragment"
+            android:label="Clientes"
+            tools:layout="@layout/fragment_clientes" />
+
+    <!-- Oportunidades Fragment -->
+    <fragment
+            android:id="@+id/nav_oportunidades"
+            android:name="com.example.crmapp.classes.OportunidadesFragment"
+            android:label="Oportunidades"
+            tools:layout="@layout/fragment_oportunidades" />
 </navigation>

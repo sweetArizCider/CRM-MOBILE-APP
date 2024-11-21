@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_candidatos"
+                android:title="@string/candidatos"/>
+        <item
+                android:id="@+id/nav_cuentas"
+                android:title="@string/cuentas"/>
+        <item
+                android:id="@+id/nav_contactos"
+                android:title="@string/contactos"/>
+        <item
+            android:id="@+id/nav_oportunidades"
+            android:title="@string/oportunidades"
+        />
+    </group>
+</menu>

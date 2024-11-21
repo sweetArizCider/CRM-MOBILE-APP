@@ -11,8 +11,8 @@
                 android:id="@+id/nav_cuentas"
                 android:title="@string/cuentas"/>
         <item
-                android:id="@+id/nav_contactos"
-                android:title="@string/contactos"/>
+                android:id="@+id/nav_clientes"
+                android:title="@string/clientes"/>
         <item
             android:id="@+id/nav_oportunidades"
             android:title="@string/oportunidades"

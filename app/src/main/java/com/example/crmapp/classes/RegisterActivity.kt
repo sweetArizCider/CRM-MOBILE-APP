@@ -2,48 +2,45 @@ package com.example.crmapp.classes
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.crmapp.MainActivity
-import com.example.crmapp.databinding.ActivityLoginBinding
-import org.json.JSONObject
+import com.example.crmapp.databinding.ActivityRegisterBinding
 import java.io.OutputStreamWriter
 import java.net.HttpURLConnection
 import java.net.URL
+import org.json.JSONObject
 
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityRegisterBinding
 
     // URL de la API PHP
-    private val apiUrl = "http://18.223.99.187/api/login.php"
+    private val apiUrl = "http://18.223.99.187/api/register.php"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Inicializar el binding
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Configurar el botón de login
-        binding.btnLogin.setOnClickListener {
+        // Configurar el botón de registro
+        binding.btnRegister.setOnClickListener {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
+            val firstName = binding.etFirstName.text.toString()
+            val lastName = binding.etLastName.text.toString()
+            val company = binding.etCompany.text.toString()
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                loginUsuario(email, password)
+            // Validar si los campos están completos
+            if (email.isNotEmpty() && password.isNotEmpty() && firstName.isNotEmpty() && lastName.isNotEmpty() && company.isNotEmpty()) {
+                registerUser(email, password, firstName, lastName, company)
             } else {
                 Toast.makeText(this, "Por favor, llena todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
-        binding.tvRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
     }
 
-    private fun loginUsuario(email: String, password: String) {
+    private fun registerUser(email: String, password: String, firstName: String, lastName: String, company: String) {
         Thread {
             try {
                 // Configurar la conexión HTTP
@@ -54,8 +51,7 @@ class LoginActivity : AppCompatActivity() {
                 connection.doOutput = true
 
                 // Crear los datos del cuerpo de la solicitud
-                val postData = "email=$email&password=$password"
-                Log.d("Login", "Sending request with data: $postData")
+                val postData = "email=$email&password=$password&nombre=$firstName&apellido=$lastName&empresa=$company"
 
                 // Enviar los datos
                 val outputStreamWriter = OutputStreamWriter(connection.outputStream)
@@ -65,46 +61,35 @@ class LoginActivity : AppCompatActivity() {
 
                 // Leer la respuesta del servidor
                 val responseCode = connection.responseCode
-                Log.d("Login", "Response code: $responseCode")
-
                 if (responseCode == HttpURLConnection.HTTP_OK) {
                     val response = connection.inputStream.bufferedReader().readText()
-                    Log.d("Login", "Server Response: $response")
-
-                    // Procesar la respuesta JSON
                     val jsonResponse = JSONObject(response)
-                    val success = jsonResponse.getBoolean("success")
+
                     val message = jsonResponse.getString("message")
 
                     runOnUiThread {
-                        if (success) {
-                            val token = jsonResponse.getString("token")
-                            Toast.makeText(this, "Login exitoso: $message", Toast.LENGTH_SHORT).show()
-
-                            // Navegar al MainActivity
-                            val intent = Intent(this, MainActivity::class.java)
+                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                        if (message.contains("exitosamente", true)) {
+                            // Si el registro es exitoso, redirigir a LoginActivity
+                            val intent = Intent(this, LoginActivity::class.java)
                             startActivity(intent)
-                            finish()
-                        } else {
-                            Toast.makeText(this, "Error: $message", Toast.LENGTH_SHORT).show()
+                            finish()  // Asegura que la actividad actual se cierre
                         }
                     }
                 } else {
                     runOnUiThread {
+                        // Manejo de error de servidor
                         Toast.makeText(this, "Error de servidor: $responseCode", Toast.LENGTH_SHORT).show()
                     }
                 }
                 connection.disconnect()
             } catch (e: Exception) {
-                // Agregar más detalles de la excepción para depuración
-                Log.e("Login", "Error: ${e.message}")
                 runOnUiThread {
+                    // Mostrar error de conexión
                     Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
                 }
                 e.printStackTrace()
             }
-
         }.start()
     }
-
 }

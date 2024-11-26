@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- activity_login.xml -->
+<!-- activity_register.xml -->
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -7,7 +6,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-    <!-- Campos de Login (Email y Password) -->
     <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
@@ -22,22 +20,28 @@
             android:hint="Contraseña"
             android:inputType="textPassword"/>
 
-    <!-- Botón de Login -->
-    <Button
-            android:id="@+id/btnLogin"
+    <EditText
+            android:id="@+id/etFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iniciar sesión"/>
+            android:hint="Nombre"/>
 
-    <!-- Texto clickeable para redirigir al registro -->
-    <TextView
-            android:id="@+id/tvRegister"
-            android:layout_width="wrap_content"
+    <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="¿No tienes cuenta? Regístrate aquí"
-            android:textColor="@android:color/holo_blue_dark"
-            android:layout_marginTop="16dp"
-            android:clickable="true"
-            android:focusable="true"/>
-</LinearLayout>
+            android:hint="Apellido"/>
 
+    <EditText
+            android:id="@+id/etCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Empresa"/>
+
+    <!-- Botón de Registro -->
+    <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"/>
+</LinearLayout>

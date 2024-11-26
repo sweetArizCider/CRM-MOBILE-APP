@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".classes.CuentasFragment">
 
-    <TextView
+    <!-- Botón para agregar contacto -->
+    <ImageButton
+            android:id="@+id/btnAddContacto"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@android:drawable/ic_input_add"
+            android:contentDescription="Add Contacto"
+            android:background="#824D74"
+            android:tint="@android:color/darker_gray" />
+
+    <!-- ExpandableListView para mostrar los contactos -->
+    <ExpandableListView
+            android:id="@+id/expandableListViewCuentas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/btnAddContacto"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="0.5dp" />
+
+    <!-- Botón de filtro -->
+    <Button
+            android:id="@+id/btnFilter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cuentas Screen"
-            android:textSize="18sp" />
-</LinearLayout>
+            android:text="Ordenar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/expandableListViewCuentas" />
+
+</RelativeLayout>

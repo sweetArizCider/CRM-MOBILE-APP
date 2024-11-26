@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".classes.CandidatosFragment">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Candidatos Screen"
-            android:textSize="18sp" />
-</LinearLayout>
+    <!-- Botón para agregar cliente -->
+    <ImageButton
+            android:id="@+id/btnAddCliente"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@android:drawable/ic_input_add"
+            android:contentDescription="Add Cliente"
+            android:background="#824D74"
+            android:tint="@android:color/darker_gray" />  <!-- Usamos el atributo tint para cambiar el color del ícono -->
+
+
+    <!-- ExpandableListView para mostrar los clientes -->
+    <ExpandableListView
+            android:id="@+id/expandableListViewClientes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/btnAddCliente"
+            android:paddingTop="16dp" />
+
+        <!-- Botón para filtrar -->
+    <ImageButton
+            android:id="@+id/btnFilter"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="16dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            android:contentDescription="Filtrar"
+            android:background="#824D74"/>
+
+</RelativeLayout>

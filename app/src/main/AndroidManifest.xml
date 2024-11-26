@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.example.crmapp">
 
     <application
             android:allowBackup="true"
@@ -39,8 +40,16 @@
                 android:theme="@style/Theme.CRMApp.NoActionBar">
         </activity>
 
+        <!-- FormularioClienteActivity -->
+        <activity
+                android:name=".classes.FormularioClienteActivity"
+                android:exported="true"
+                android:theme="@style/Theme.CRMApp.NoActionBar">
+        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
+

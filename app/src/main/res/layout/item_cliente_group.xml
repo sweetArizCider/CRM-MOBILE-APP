@@ -1,0 +1,10 @@
+<TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/textEmpresa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:paddingStart="32dp"
+        android:text="Empresa"
+        android:textSize="16sp"
+        android:textStyle="bold" />

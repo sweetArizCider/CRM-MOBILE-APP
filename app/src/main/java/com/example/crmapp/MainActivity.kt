@@ -3,7 +3,7 @@ package com.example.crmapp
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.widget.Toolbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -21,34 +21,32 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Initialize the binding object and set the content view
+        // Inicializar el binding y establecer el layout
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set up the toolbar as the action bar
+        // Configurar el Toolbar como ActionBar
         setSupportActionBar(binding.appBarMain.toolbar)
 
-
-        // Initialize the drawer and navigation view
+        // Inicializar el DrawerLayout y NavigationView
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
-        // Passing each menu ID as a set of IDs because each should be considered a top-level destination
+        // Pasar cada ID de menú como un conjunto de IDs porque cada uno debe considerarse un destino de nivel superior
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_candidatos, R.id.nav_cuentas, R.id.nav_clientes, R.id.nav_oportunidades
             ), drawerLayout
         )
 
-
-        // Set up navigation for the action bar and the navigation view
+        // Configurar la navegación para el ActionBar y el NavigationView
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu
+        // Inflar el menú
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
@@ -57,5 +55,4 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
 }

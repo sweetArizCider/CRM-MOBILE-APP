@@ -2,14 +2,14 @@ package com.example.crmapp.classes
 
 import Contacto
 import ContactoExpandableListAdapter
-import FormularioContactoActivity
+import com.example.crmapp.classes.FormularioContactoActivity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ExpandableListView
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.crmapp.R
@@ -25,16 +25,28 @@ class CuentasFragment : Fragment(R.layout.fragment_cuentas) {
     private var _binding: FragmentCuentasBinding? = null
     private val binding get() = _binding!!
     private val apiUrl = "http://18.223.99.187/api/getContactos.php" // URL de la API
-    private var isAscendente = true  // Variable para controlar el orden de los elementos
+    private var isAscendente = true // Variable para controlar el orden de los elementos
 
     private val contactosList = mutableListOf<Contacto>() // Lista de contactos
     private lateinit var adapter: ContactoExpandableListAdapter // Adaptador para el ExpandableListView
+    private lateinit var btnAddContacto: ImageButton // Botón para agregar contacto
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCuentasBinding.inflate(inflater, container, false)
+
+        // Asignar referencia al botón desde el XML
+        val view = binding.root
+        btnAddContacto = view.findViewById(R.id.btnAddContacto)
+
+        // Configurar acción del botón para abrir el formulario
+        btnAddContacto.setOnClickListener {
+            val intent = Intent(requireContext(), FormularioContactoActivity::class.java)
+            startActivity(intent)
+        }
+
         return binding.root
     }
 
@@ -46,18 +58,6 @@ class CuentasFragment : Fragment(R.layout.fragment_cuentas) {
         adapter = ContactoExpandableListAdapter(requireContext(), contactosList) // Inicializa el adaptador con la lista de contactos
         expandableListView.setAdapter(adapter)
 
-        // Acceder al botón de agregar contacto
-        binding.btnAddContacto.setOnClickListener {
-            // Abre el formulario de contacto (puedes implementarlo según tus necesidades)
-            val intent = Intent(activity, FormularioContactoActivity::class.java)
-            startActivity(intent)
-        }
-
-        // Acceder al botón de filtro
-        binding.btnFilter.setOnClickListener {
-            showFilterDialog()
-        }
-
         // Cargar contactos al iniciar
         loadContactos()
     }
@@ -67,12 +67,12 @@ class CuentasFragment : Fragment(R.layout.fragment_cuentas) {
             try {
                 val order = if (isAscendente) "ASC" else "DESC"
 
-                // Construir la URL con el parámetro de ordenamiento (puedes ajustar según sea necesario)
+                // Construir la URL con el parámetro de ordenamiento
                 val url = URL("$apiUrl?order=$order")
                 val connection = url.openConnection() as HttpURLConnection
 
                 connection.requestMethod = "GET"
-                connection.setRequestProperty("Content-Type", "application/json")  // Asegúrate de usar el tipo de contenido correcto
+                connection.setRequestProperty("Content-Type", "application/json")
 
                 val responseCode = connection.responseCode
                 if (responseCode == HttpURLConnection.HTTP_OK) {
@@ -95,7 +95,7 @@ class CuentasFragment : Fragment(R.layout.fragment_cuentas) {
 
                     // Actualizar la UI en el hilo principal
                     activity?.runOnUiThread {
-                        adapter.notifyDataSetChanged() // Notificar al adaptador que la lista ha cambiado
+                        adapter.notifyDataSetChanged()
                     }
                 } else {
                     activity?.runOnUiThread {
@@ -128,8 +128,7 @@ class CuentasFragment : Fragment(R.layout.fragment_cuentas) {
         val options = arrayOf("Ascendente", "Descendente")
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Ordenar por empresa")
-        builder.setItems(options) { dialog, which ->
-            // Si se elige "Ascendente" o "Descendente", se actualiza el orden
+        builder.setItems(options) { _, which ->
             isAscendente = which == 0
 
             // Muestra un mensaje con la opción seleccionada

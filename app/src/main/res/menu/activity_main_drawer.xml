@@ -6,16 +6,16 @@
     <group android:checkableBehavior="single">
         <item
                 android:id="@+id/nav_candidatos"
-                android:title="@string/candidatos"/>
+                android:title="Clientes"/>
         <item
                 android:id="@+id/nav_cuentas"
-                android:title="@string/cuentas"/>
+                android:title="Contactos"/>
         <item
                 android:id="@+id/nav_clientes"
-                android:title="@string/clientes"/>
+                android:title="Requisiciones"/>
         <item
             android:id="@+id/nav_oportunidades"
-            android:title="@string/oportunidades"
+            android:title="Administrar Requisiciones"
         />
     </group>
 </menu>

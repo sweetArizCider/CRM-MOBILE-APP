@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 $order = isset($_GET['order']) ? $_GET['order'] : 'ASC';  // Por defecto 'ASC'
 
 // Consultar clientes con orden
-$query = "SELECT empresa, CdMatriz AS ciudad, estatus FROM Cliente ORDER BY empresa $order";
+$query = "SELECT empresa, CdMatriz AS ciudad, estatus, presupuesto FROM Cliente ORDER BY empresa $order";
 $result = $conn->query($query);
 
 if ($result->num_rows > 0) {
@@ -29,7 +29,8 @@ if ($result->num_rows > 0) {
         $clientes[] = [
             "empresa" => $row['empresa'],
             "ciudad" => $row['ciudad'], // Usamos 'ciudad' en lugar de 'CdMatriz'
-            "estatus" => $row['estatus']
+            "estatus" => $row['estatus'],
+            "presupuesto" => $row['presupuesto']
         ];
     }
     echo json_encode($clientes);

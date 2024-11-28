@@ -84,8 +84,10 @@ class CandidatosFragment : Fragment(R.layout.fragment_candidatos) {
                         val cliente = Cliente(
                             empresa = jsonObject.getString("empresa"),
                             ciudad = jsonObject.getString("ciudad"),
-                            estatus = jsonObject.getString("estatus")
+                            estatus = jsonObject.getString("estatus"),
+                            presupuesto = jsonObject.optString("presupuesto", "No disponible") // Usar un valor por defecto
                         )
+
                         clientesList.add(cliente)
                     }
 

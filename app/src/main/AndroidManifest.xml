@@ -46,6 +46,10 @@
                 android:exported="true"
                 android:theme="@style/Theme.CRMApp.NoActionBar">
         </activity>
+        <activity android:name=".classes.FormularioContactoActivity" />
+
+
+
 
     </application>
 

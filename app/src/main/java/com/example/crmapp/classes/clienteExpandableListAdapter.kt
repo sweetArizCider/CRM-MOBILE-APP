@@ -35,14 +35,19 @@ class ClienteExpandableListAdapter(
         return view
     }
 
-
     override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup?): View {
         val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_cliente_child, parent, false)
+
         val textCiudad = view.findViewById<TextView>(R.id.textCiudad)
         val textEstatus = view.findViewById<TextView>(R.id.textEstatus)
+        val textPresupuesto = view.findViewById<TextView>(R.id.textPresupuesto) // Nuevo TextView para el presupuesto
+
         val cliente = getChild(groupPosition, childPosition)
+
         textCiudad.text = "Ciudad: ${cliente.ciudad}"
         textEstatus.text = "Estatus: ${cliente.estatus}"
+        textPresupuesto.text = "Presupuesto: ${cliente.presupuesto}" // Asignar el presupuesto
+
         return view
     }
 }

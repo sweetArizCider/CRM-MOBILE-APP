@@ -3,6 +3,8 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:padding="16dp"
                 tools:context=".classes.RequisicionesFragment">
 
     <!-- LinearLayout horizontal para los botones -->
@@ -19,44 +21,49 @@
         <!-- Botón para recargar requisiciones -->
         <ImageButton
                 android:id="@+id/btnReload"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
                 android:src="@android:drawable/ic_popup_sync"
                 android:contentDescription="Reload Requisiciones"
-                android:background="#824D74"
-                android:tint="@android:color/darker_gray"
+                android:background="@drawable/button_background"
+                android:tint="@android:color/white"
+                android:elevation="6dp"
                 android:layout_marginEnd="8dp"/>
 
         <!-- Botón para filtrar requisiciones -->
         <ImageButton
                 android:id="@+id/btnFilter"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
                 android:src="@android:drawable/ic_menu_sort_by_size"
                 android:contentDescription="Filtrar"
-                android:background="#824D74"
+                android:background="@drawable/button_background"
+                android:tint="@android:color/white"
+                android:elevation="6dp"
                 android:layout_marginEnd="8dp"/>
 
         <!-- Botón de + -->
         <ImageButton
                 android:id="@+id/btnAdd"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
                 android:src="@android:drawable/ic_input_add"
                 android:contentDescription="Agregar Requisición"
-                android:background="#824D74"
-                android:tint="@android:color/darker_gray"
+                android:background="@drawable/button_background"
+                android:tint="@android:color/white"
+                android:elevation="6dp"
                 android:layout_marginEnd="8dp"/>
 
         <!-- Botón de lápiz -->
         <ImageButton
                 android:id="@+id/btnEdit"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
                 android:src="@android:drawable/ic_menu_edit"
                 android:contentDescription="Editar Requisición"
-                android:background="#824D74"
-                android:tint="@android:color/darker_gray"/>
+                android:background="@drawable/button_background"
+                android:tint="@android:color/white"
+                android:elevation="6dp"/>
 
     </LinearLayout>
 
@@ -66,5 +73,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/buttonContainer"
-            android:paddingTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:divider="#D3D3D3"
+            android:dividerHeight="1dp"
+            android:paddingTop="8dp"
+            android:background="@drawable/expandable_list_background"
+            android:clipToPadding="false" />
 </RelativeLayout>

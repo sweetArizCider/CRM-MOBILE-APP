@@ -3,21 +3,39 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:padding="16dp"
                 tools:context=".classes.CuentasFragment">
 
     <!-- Botón para agregar contacto -->
     <ImageButton
             android:id="@+id/btnAddContacto"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
             android:src="@android:drawable/ic_input_add"
-            android:contentDescription="Add Contacto"
-            android:background="#824D74"
-            android:tint="@android:color/darker_gray" />
+            android:contentDescription="Agregar Contacto"
+            android:background="@drawable/button_background"
+            android:tint="@android:color/white"
+            android:elevation="6dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+    <!-- Botón para filtrar (opcional) -->
+    <ImageButton
+            android:id="@+id/btnFilter"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            android:contentDescription="Filtrar"
+            android:background="@drawable/button_background"
+            android:tint="@android:color/white"
+            android:elevation="6dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" />
 
     <!-- ExpandableListView para mostrar los contactos -->
     <ExpandableListView
@@ -25,9 +43,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/btnAddContacto"
-            android:divider="@android:color/darker_gray"
+            android:layout_marginTop="16dp"
+            android:divider="#D3D3D3"
             android:dividerHeight="1dp"
-    />
-
+            android:paddingTop="8dp"
+            android:background="@drawable/expandable_list_background"
+            android:clipToPadding="false"
+            android:scrollbarThumbVertical="@android:color/darker_gray"
+            android:scrollbarTrackVertical="@android:color/white" />
 
 </RelativeLayout>

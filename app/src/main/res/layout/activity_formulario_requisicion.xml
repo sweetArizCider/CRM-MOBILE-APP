@@ -3,46 +3,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:layout_gravity="center">
 
     <Spinner
             android:id="@+id/spinnerCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Seleccione un cliente" />
+            android:hint="Seleccione un cliente"
+            android:padding="12dp"
+            android:background="@drawable/spinner_bg"
+            android:layout_marginBottom="8dp" />
 
     <EditText
             android:id="@+id/editTextFecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Fecha de Creación"
-            android:inputType="date" />
+            android:inputType="date"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="8dp" />
 
     <EditText
             android:id="@+id/editTextCantidadServicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Cantidad de Servicio"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="8dp" />
 
     <EditText
             android:id="@+id/editTextCantidadDinero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Cantidad de Dinero"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="8dp" />
 
     <EditText
             android:id="@+id/editTextServicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Servicio"
-            android:inputType="text" />
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="16dp" />
 
     <Button
             android:id="@+id/buttonEnviar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Enviar"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
             android:layout_gravity="center" />
+
 </LinearLayout>

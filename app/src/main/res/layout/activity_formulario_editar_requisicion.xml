@@ -119,7 +119,7 @@
             android:layout_height="wrap_content"
             android:text="Enviar"
             android:layout_gravity="center"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/button_background"
             android:textColor="@android:color/white"
             android:padding="8dp"
             android:layout_marginTop="16dp"

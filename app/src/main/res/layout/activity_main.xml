@@ -6,15 +6,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:openDrawer="start">
+        tools:openDrawer="start"
+        android:background="@android:color/white"> <!-- Color de fondo opcional -->
 
     <!-- Include your app bar layout -->
     <include
             android:id="@+id/app_bar_main"
             layout="@layout/app_bar_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp" /> <!-- Margen opcional -->
 
+    <!-- Navigation View -->
+    <!-- Navigation View -->
     <!-- Navigation View -->
     <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
@@ -22,8 +26,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
+            android:background="@drawable/navigation_view_bg"
             app:headerLayout="@layout/nav_header_main"
-            app:menu="@menu/activity_main_drawer"/>
+            app:menu="@menu/activity_main_drawer" />
+
+
 
     <!-- FrameLayout to host the fragments -->
     <FrameLayout
@@ -31,5 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white"
+            android:elevation="4dp" />
+
 </androidx.drawerlayout.widget.DrawerLayout>

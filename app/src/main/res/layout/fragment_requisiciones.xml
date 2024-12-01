@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".classes.RequisicionesFragment">
+
+    <!-- LinearLayout horizontal para los botones -->
+    <LinearLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp">
+
+        <!-- Botón para recargar requisiciones -->
+        <ImageButton
+                android:id="@+id/btnReload"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@android:drawable/ic_popup_sync"
+                android:contentDescription="Reload Requisiciones"
+                android:background="#824D74"
+                android:tint="@android:color/darker_gray"
+                android:layout_marginEnd="8dp"/>
+
+        <!-- Botón para filtrar requisiciones -->
+        <ImageButton
+                android:id="@+id/btnFilter"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                android:contentDescription="Filtrar"
+                android:background="#824D74"
+                android:layout_marginEnd="8dp"/>
+
+        <!-- Botón de + -->
+        <ImageButton
+                android:id="@+id/btnAdd"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@android:drawable/ic_input_add"
+                android:contentDescription="Agregar Requisición"
+                android:background="#824D74"
+                android:tint="@android:color/darker_gray"
+                android:layout_marginEnd="8dp"/>
+
+        <!-- Botón de lápiz -->
+        <ImageButton
+                android:id="@+id/btnEdit"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@android:drawable/ic_menu_edit"
+                android:contentDescription="Editar Requisición"
+                android:background="#824D74"
+                android:tint="@android:color/darker_gray"/>
+
+    </LinearLayout>
+
+    <!-- ExpandableListView para mostrar las requisiciones -->
+    <ExpandableListView
+            android:id="@+id/expandableListViewRequisiciones"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/buttonContainer"
+            android:paddingTop="16dp"/>
+</RelativeLayout>

@@ -20,18 +20,18 @@ if ($conn->connect_error) {
     ]));
 }
 
-// Obtener datos del formulario (asegúrate de enviar los datos por POST en Postman o tu app)
-$p_idRequisicion = $_POST['idRequisicion'] ?? '';
-$p_estado = $_POST['estado'] ?? '';
-$p_cantidadServicio = $_POST['cantidadServicio'] ?? NULL;
-$p_cantidadDinero = $_POST['cantidadDinero'] ?? NULL;
-$p_servicio = $_POST['servicio'] ?? NULL;
-$p_fechaAlteracion = $_POST['fechaAlteracion'] ?? NULL;
-$p_motivoCancelacion = $_POST['motivoCancelacion'] ?? NULL;
-$p_motivoPosposicion = $_POST['motivoPosposicion'] ?? NULL;
-$p_motivoReembolso = $_POST['motivoReembolso'] ?? NULL;
+// Obtener datos del formulario
+$p_idRequisicion = $_POST['idRequisicion'] ?? null;
+$p_estado = $_POST['estado'] ?? null;
+$p_cantidadServicio = $_POST['cantidadServicio'] ?? null;
+$p_cantidadDinero = $_POST['cantidadDinero'] ?? null;
+$p_servicio = $_POST['servicio'] ?? null;
+$p_fechaAlteracion = $_POST['fechaAlteracion'] ?? null;
+$p_motivoCancelacion = $_POST['motivoCancelacion'] ?? null;
+$p_motivoPosposicion = $_POST['motivoPosposicion'] ?? null;
+$p_motivoReembolso = $_POST['motivoReembolso'] ?? null;
 
-// Validar que los datos no estén vacíos
+// Validar que los campos obligatorios no estén vacíos
 if (empty($p_idRequisicion) || empty($p_estado)) {
     die(json_encode([
         "success" => false,
@@ -40,44 +40,58 @@ if (empty($p_idRequisicion) || empty($p_estado)) {
 }
 
 try {
-    // Preparar la llamada al procedimiento almacenado
-    $stmt = $conn->prepare("CALL ModificarRequisicion(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    // Preparar la consulta
+    $sql = "CALL ModificarRequisicion(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
 
-    // Verificar que la preparación fue exitosa
     if ($stmt === false) {
-        die(json_encode([
-            "success" => false,
-            "message" => "Error al preparar la consulta: " . $conn->error
-        ]));
+        throw new Exception("Error al preparar la consulta: " . $conn->error);
     }
 
-    // Vincular los parámetros
-    $stmt->bind_param("isddddssss", $p_idRequisicion, $p_estado, $p_cantidadServicio, $p_cantidadDinero, $p_servicio, $p_fechaAlteracion, $p_motivoCancelacion, $p_motivoPosposicion, $p_motivoReembolso);
+    // Convertir valores NULL explícitos
+    $p_cantidadServicio = $p_cantidadServicio !== null ? floatval($p_cantidadServicio) : null;
+    $p_cantidadDinero = $p_cantidadDinero !== null ? floatval($p_cantidadDinero) : null;
+    $p_servicio = $p_servicio !== null ? strval($p_servicio) : null;
+    $p_fechaAlteracion = $p_fechaAlteracion !== null ? strval($p_fechaAlteracion) : null;
+    $p_motivoCancelacion = $p_motivoCancelacion !== null ? strval($p_motivoCancelacion) : null;
+    $p_motivoPosposicion = $p_motivoPosposicion !== null ? strval($p_motivoPosposicion) : null;
+    $p_motivoReembolso = $p_motivoReembolso !== null ? strval($p_motivoReembolso) : null;
+
+    // Vincular parámetros usando bind_param
+    // Importante: bind_param no soporta directamente NULL; usar valores reales en su lugar
+    $stmt->bind_param(
+        "issssssss",
+        $p_idRequisicion,
+        $p_estado,
+        $p_cantidadServicio,
+        $p_cantidadDinero,
+        $p_servicio,
+        $p_fechaAlteracion,
+        $p_motivoCancelacion,
+        $p_motivoPosposicion,
+        $p_motivoReembolso
+    );
 
     // Ejecutar la consulta
-    $stmt->execute();
-
-    // Verificar si la ejecución fue exitosa y se realizaron cambios
-    if ($stmt->affected_rows > 0) {
-        echo json_encode([
-            "success" => true,
-            "message" => "Requisición modificada con éxito",
-            "idRequisicion" => $p_idRequisicion
-        ]);
-    } else {
-        echo json_encode([
-            "success" => false,
-            "message" => "No se pudo modificar la requisición o no se encontraron cambios."
-        ]);
+    if (!$stmt->execute()) {
+        throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
     }
 
-    // Cerrar la consulta y la conexión
+    // Verificar resultados
+    echo json_encode([
+        "success" => true,
+        "message" => "Requisición modificada con éxito",
+        "idRequisicion" => $p_idRequisicion
+    ]);
+
+    // Cerrar consulta y conexión
     $stmt->close();
     $conn->close();
 } catch (Exception $e) {
+    // Registrar errores para depuración
+    error_log("Error en API ModificarRequisicion: " . $e->getMessage());
     echo json_encode([
         "success" => false,
         "message" => "Error: " . $e->getMessage()
     ]);
 }
-?>

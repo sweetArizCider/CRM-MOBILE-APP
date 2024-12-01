@@ -20,15 +20,8 @@
 
     <!-- Clientes Fragment -->
     <fragment
-            android:id="@+id/nav_clientes"
-            android:name="com.example.crmapp.classes.ClientesFragment"
-            android:label="Clientes"
-            tools:layout="@layout/fragment_clientes" />
-
-    <!-- Oportunidades Fragment -->
-    <fragment
-            android:id="@+id/nav_oportunidades"
-            android:name="com.example.crmapp.classes.OportunidadesFragment"
-            android:label="Oportunidades"
-            tools:layout="@layout/fragment_oportunidades" />
+            android:id="@+id/nav_Requisiciones"
+            android:name="com.example.crmapp.classes.RequisicionesFragment"
+            android:label="Requisiciones"
+            tools:layout="@layout/fragment_requisiciones" />
 </navigation>

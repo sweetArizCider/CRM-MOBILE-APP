@@ -1,0 +1,64 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+    <TextView
+            android:id="@+id/textViewIdRequisicion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID de Requisición"
+            android:textStyle="bold" />
+
+    <TextView
+            android:id="@+id/textViewEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Empresa" />
+
+    <TextView
+            android:id="@+id/textViewFechaCreacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de Creación" />
+
+    <TextView
+            android:id="@+id/textViewEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado" />
+
+    <TextView
+            android:id="@+id/textViewCantidadServicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad de Servicio" />
+
+    <TextView
+            android:id="@+id/textViewCantidadDinero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad de Dinero" />
+
+    <TextView
+            android:id="@+id/textViewServicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Servicio" />
+
+    <TextView
+            android:id="@+id/textViewMotivoCancelacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Motivo de Cancelación" />
+
+    <TextView
+            android:id="@+id/textViewFechaAlteracion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de Alteración" />
+
+    <!-- Agrega más TextViews si es necesario -->
+</LinearLayout>

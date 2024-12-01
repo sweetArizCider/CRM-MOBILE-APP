@@ -1,61 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@android:color/white">
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/card_background"
+            android:elevation="4dp"
+            app:cardCornerRadius="12dp">
 
+        <!-- Campo de Nombre -->
         <EditText
                 android:id="@+id/etNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombre"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
 
+        <!-- Campo de Apellido -->
         <EditText
                 android:id="@+id/etApellido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Apellido"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
 
+        <!-- Campo de Dirección -->
         <EditText
                 android:id="@+id/etDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Dirección"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
 
+        <!-- Campo de Correo Electrónico -->
         <EditText
                 android:id="@+id/etCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Correo electrónico"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
 
+        <!-- Campo de Número de Teléfono -->
         <EditText
                 android:id="@+id/etNumero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Número de teléfono"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
 
+        <!-- Campo de Empresa (opcional) -->
         <EditText
                 android:id="@+id/etEmpresa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Empresa (opcional)"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"/>
 
+        <!-- Botón de Guardar Contacto -->
         <Button
                 android:id="@+id/btnGuardarContacto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Guardar Contacto"
-                android:layout_marginTop="16dp" />
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:padding="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"/>
+
     </LinearLayout>
 </ScrollView>

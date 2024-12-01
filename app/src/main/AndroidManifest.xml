@@ -47,6 +47,10 @@
                 android:theme="@style/Theme.CRMApp.NoActionBar">
         </activity>
         <activity android:name=".classes.FormularioContactoActivity" />
+        <activity android:name=".classes.FormularioRequisicionActivity" />
+        <activity android:name=".classes.FormularioModificarRequisicionActivity" />
+
+
 
 
 

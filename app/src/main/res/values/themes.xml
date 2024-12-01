@@ -29,4 +29,7 @@
     <!-- Other overlays or styles can remain as is -->
     <style name="Theme.CRMApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="Theme.CRMApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
 </resources>

@@ -1,0 +1,48 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <Spinner
+            android:id="@+id/spinnerCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Seleccione un cliente" />
+
+    <EditText
+            android:id="@+id/editTextFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fecha de Creación"
+            android:inputType="date" />
+
+    <EditText
+            android:id="@+id/editTextCantidadServicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad de Servicio"
+            android:inputType="numberDecimal" />
+
+    <EditText
+            android:id="@+id/editTextCantidadDinero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad de Dinero"
+            android:inputType="numberDecimal" />
+
+    <EditText
+            android:id="@+id/editTextServicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Servicio"
+            android:inputType="text" />
+
+    <Button
+            android:id="@+id/buttonEnviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:layout_gravity="center" />
+</LinearLayout>

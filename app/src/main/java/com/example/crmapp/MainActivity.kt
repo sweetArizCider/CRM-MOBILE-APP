@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         // Pasar cada ID de menú como un conjunto de IDs porque cada uno debe considerarse un destino de nivel superior
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_candidatos, R.id.nav_cuentas, R.id.nav_clientes, R.id.nav_oportunidades
+                R.id.nav_candidatos, R.id.nav_cuentas, R.id.nav_Requisiciones
             ), drawerLayout
         )
 

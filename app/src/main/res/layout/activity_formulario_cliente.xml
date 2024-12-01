@@ -1,55 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:padding="16dp">
+              android:padding="16dp"
+              android:background="@android:color/white">
 
-    <EditText
-            android:id="@+id/etEmpresa"
+    <!-- Título del Formulario -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrar Cliente"
+            android:textSize="24sp"
+            android:textColor="#333333"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+    <!-- CardView para el formulario -->
+    <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Empresa" />
+            android:elevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="16dp">
 
-    <EditText
-            android:id="@+id/etCdMatriz"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="CdMatriz" />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-    <EditText
-            android:id="@+id/etPresupuesto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Presupuesto" />
+            <!-- Campo de Empresa -->
+            <EditText
+                    android:id="@+id/etEmpresa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Empresa"
+                    android:inputType="text"
+                    android:background="@drawable/edittext_bg"
+                    android:padding="10dp"
+                    android:layout_marginBottom="12dp"/>
 
-    <EditText
-            android:id="@+id/etEstatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Estatus" />
+            <!-- Campo de CdMatriz -->
+            <EditText
+                    android:id="@+id/etCdMatriz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="CdMatriz"
+                    android:inputType="text"
+                    android:background="@drawable/edittext_bg"
+                    android:padding="10dp"
+                    android:layout_marginBottom="12dp"/>
 
-    <EditText
-            android:id="@+id/etCalle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Calle" />
+            <!-- Campo de Presupuesto -->
+            <EditText
+                    android:id="@+id/etPresupuesto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Presupuesto"
+                    android:inputType="numberDecimal"
+                    android:background="@drawable/edittext_bg"
+                    android:padding="10dp"
+                    android:layout_marginBottom="12dp"/>
 
-    <EditText
-            android:id="@+id/etCP"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="CP" />
+            <!-- Campo de Estatus -->
+            <EditText
+                    android:id="@+id/etEstatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Estatus"
+                    android:inputType="text"
+                    android:background="@drawable/edittext_bg"
+                    android:padding="10dp"
+                    android:layout_marginBottom="12dp"/>
 
-    <EditText
-            android:id="@+id/etNumExterior"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Número Exterior" />
+            <!-- Campo de Calle -->
+            <EditText
+                    android:id="@+id/etCalle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Calle"
+                    android:inputType="text"
+                    android:background="@drawable/edittext_bg"
+                    android:padding="10dp"
+                    android:layout_marginBottom="12dp"/>
 
+            <!-- Campo de CP -->
+            <EditText
+                    android:id="@+id/etCP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="CP"
+                    android:inputType="number"
+                    android:background="@drawable/edittext_bg"
+                    android:padding="10dp"
+                    android:layout_marginBottom="12dp"/>
+
+            <!-- Campo de Número Exterior -->
+            <EditText
+                    android:id="@+id/etNumExterior"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Número Exterior"
+                    android:inputType="text"
+                    android:background="@drawable/edittext_bg"
+                    android:padding="10dp"
+                    android:layout_marginBottom="12dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Botón de envío -->
     <Button
             android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrar Cliente" />
+            android:text="Registrar Cliente"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:padding="12dp"
+            android:layout_gravity="center"/>
+
 </LinearLayout>

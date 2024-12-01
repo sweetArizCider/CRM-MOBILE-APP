@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="16dp"
+              android:background="@android:color/white"
+              android:scrollbars="vertical">
+
+    <!-- Campo de ID de Requisición -->
+    <EditText
+            android:id="@+id/editTextIdRequisicion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID de Requisición"
+            android:inputType="number"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"
+            android:focusable="true"/>
+
+    <!-- Spinner para seleccionar estado -->
+    <Spinner
+            android:id="@+id/spinnerEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"/>
+
+    <!-- Campo de Fecha de Alteración -->
+    <EditText
+            android:id="@+id/editTextFechaAlteracion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fecha de Alteración"
+            android:inputType="date"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"
+            android:focusable="true"/>
+
+    <!-- Campo de Cantidad de Servicio -->
+    <EditText
+            android:id="@+id/editTextCantidadServicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad de Servicio"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"
+            android:focusable="true"/>
+
+    <!-- Campo de Cantidad de Dinero -->
+    <EditText
+            android:id="@+id/editTextCantidadDinero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad de Dinero"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"
+            android:focusable="true"/>
+
+    <!-- Campo de Servicio -->
+    <EditText
+            android:id="@+id/editTextServicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Servicio"
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"
+            android:focusable="true"/>
+
+    <!-- Campo de Motivo de Cancelación -->
+    <EditText
+            android:id="@+id/editTextMotivoCancelacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Motivo de Cancelación"
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"
+            android:focusable="true"/>
+
+    <!-- Campo de Motivo de Posposición -->
+    <EditText
+            android:id="@+id/editTextMotivoPosposicion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Motivo de Posposición"
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"
+            android:focusable="true"/>
+
+    <!-- Campo de Motivo de Reembolso -->
+    <EditText
+            android:id="@+id/editTextMotivoReembolso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Motivo de Reembolso"
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@drawable/edittext_bg"
+            android:layout_marginBottom="12dp"
+            android:focusable="true"/>
+
+    <!-- Botón de Enviar -->
+    <Button
+            android:id="@+id/buttonEnviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:layout_gravity="center"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:layout_marginTop="16dp"
+            android:focusable="true"/>
+
+
+</LinearLayout>
